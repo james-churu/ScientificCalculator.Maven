@@ -16,12 +16,11 @@ public class Calculator {
         currentVal = start;
         savedVal = saved;
     }
-
-
     //***********************Taking a number method;****************************
     public static double numberInput() {
         int x = 1;
         double entered = 0;
+        System.out.print("Enter Next Number    : ");
 
         do {
             try {
@@ -40,9 +39,7 @@ public class Calculator {
 
         return entered;
     }
-
     //***************************Taking an operator****************************
-// String[] = new String[] {"+","-","/","*"};
     public String operatorInput() {
 
         String[] basic = {"+", "-", "/", "*"};
@@ -76,18 +73,19 @@ public class Calculator {
                     }
                 }
                 if (exitDoLoop != true) {
-                    System.out.println("Invalid Input - Enter an Operator : ");
+                    System.out.println("Current Val          : " + this.currentVal);
+                    System.out.print("Error : Not Operator : ");
                 }
 
             } catch (InputMismatchException e) {
-                System.out.print("Invalid Input - Enter an operator : ");
+                System.out.println("Current Val          : " + this.currentVal);
+                System.out.print("Error : Not Operator : ");
             }
 
         } while (exitDoLoop == false);
 
         return entered;
     }
-
     // Method for which calculator they want to use ---------------------------
     public static String calcChoice() {
         Scanner userCalcChoice = new Scanner(System.in);
@@ -99,6 +97,7 @@ public class Calculator {
 /////////////////////////-   MAIN METHOD  -////////////////////////////////////
 
     public static void main(String[] args) {
+
 
         System.out.print("Hello which calculator would you like to use ? \n" +
                 "Enter ''S'' for Scientific or ''B''  for Basic   : ");
@@ -127,6 +126,8 @@ public class Calculator {
 
 
         Calculator user = new Calculator();
+        Basic basic = new Basic();
+        Scientific scientific = new Scientific();
 
         double starterNum;
         double savedNum;
@@ -149,24 +150,58 @@ public class Calculator {
                 String userOperator = user.operatorInput();
 
                 if(userOperator.equals("+")){
-                    double added = add(2,1);
 
-                }else if(userOperator.equals("-"){
+                    double userNextNum = user.numberInput();
+                    double newNum = basic.add(user.currentVal,userNextNum);
+                    user.currentVal = newNum;
 
-                }else if(userOperator.equals("*"){
+                }else if(userOperator.equals("-")){
 
-                }else if(userOperator.equals("/"){
+                    double userNextNum = user.numberInput();
+                    double newNum = basic.subtract(user.currentVal,userNextNum);
+                    user.currentVal = newNum;
 
-                }else if(userOperator.equals(""){
+                }else if(userOperator.equals("*")){
 
-                }else{
+                    double userNextNum = user.numberInput();
+                    double newNum = basic.multiply(user.currentVal,userNextNum);
+                    user.currentVal = newNum;
 
-                }
+                }else if(userOperator.equals("/")){
 
+                    double userNextNum = user.numberInput();
+                    double newNum = basic.divide(user.currentVal,userNextNum);
+                    user.currentVal = newNum;
+                    //**********************************************
+                }else if(userOperator.equals("square()")){
 
-                System.out.print("Enter Next Number    : ");
-                double userNextNum = user.numberInput();
-                System.out.println("Current Val          : 5");
+                    double newNum = scientific.square(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("squareRoot()")){
+
+                    double newNum = scientific.squareRoot(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("inverse()")) {
+
+                    double newNum = scientific.inverse(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("switchSign()")) {
+
+                    double newNum = scientific.switchSign(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("sine()")) {
+
+                    double newNum = scientific.sin(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("cosine()")) {
+
+                    double newNum = scientific.inverse(user.currentVal);
+                    user.currentVal = newNum;
 
 
                 keepGoing = 0;
@@ -175,13 +210,11 @@ public class Calculator {
             }
         }
 
+        System.out.println("Your new num = " + user.currentVal);
+
     }
 
+
+
 }
-
-if(){
-
-} else if (){
-
-        }
 
