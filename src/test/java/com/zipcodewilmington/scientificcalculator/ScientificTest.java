@@ -21,14 +21,14 @@ public class ScientificTest {
         Assert.assertEquals(expected,actual,0);
         // delta is the percision lost
     }
-      @Test
+    /*@Test
     public void factorialTest(){
-          Scientific scientific = new Scientific();
-          double expected = 24;
-          double actual= scientific.factorial(4);
-          Assert.assertEquals(expected, actual,0);
+        Scientific scientific = new Scientific();
+        double expected = 24;
+        double actual= scientific.factorial(4);
+        Assert.assertEquals(expected, actual,0);
 
-      }
+    }*/
 
 
 

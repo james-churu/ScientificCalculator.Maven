@@ -1,5 +1,6 @@
 package com.zipcodewilmington.scientificcalculator;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,7 +8,7 @@ import org.junit.Test;
 public class BasicTest {
 
     @Test
-     public void addTest() {
+    public void addTest() {
         Basic basic = new Basic();
         int expected = 10;
 

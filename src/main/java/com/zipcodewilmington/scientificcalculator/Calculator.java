@@ -147,9 +147,27 @@ public class Calculator {
                 System.out.println("Current Val          : " + user.currentVal);
                 System.out.print("Enter Operator       : ");
                 String userOperator = user.operatorInput();
+
+                if(userOperator.equals("+")){
+                    double added = add(2,1);
+
+                }else if(userOperator.equals("-"){
+
+                }else if(userOperator.equals("*"){
+
+                }else if(userOperator.equals("/"){
+
+                }else if(userOperator.equals(""){
+
+                }else{
+
+                }
+
+
                 System.out.print("Enter Next Number    : ");
                 double userNextNum = user.numberInput();
                 System.out.println("Current Val          : 5");
+
 
                 keepGoing = 0;
                 
@@ -161,5 +179,9 @@ public class Calculator {
 
 }
 
+if(){
 
+} else if (){
+
+        }
 
