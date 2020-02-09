@@ -46,7 +46,7 @@ public class ScientificTest {
     public void sinTest() {
         Scientific scientific = new Scientific();
         double expected = 0.7071067811865475;
-        double actual = scientific.sin(45.0);
+        double actual = scientific.sine(45.0);
         Assert.assertEquals(expected, actual, 0);
         // delta is the percision lost
     }
@@ -55,7 +55,7 @@ public class ScientificTest {
     public void cosTest() {
         Scientific scientific = new Scientific();
         double expected = 0.7071067811865475;
-        double actual = scientific.cos(45.0);
+        double actual = scientific.cosine(45.0);
         Assert.assertEquals(expected, actual, 5);
         // delta is the percision lost
     }

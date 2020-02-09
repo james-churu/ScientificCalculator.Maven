@@ -21,18 +21,20 @@ public class Scientific {
     }
 
 
-    public double sin(double y) {
+    public double sine(double y) {
         double radians = Math.toRadians(y);
 
         return Math.sin(radians);
     }
 
 
-    public double cos(double x) {
+
+    public double cosine(double x) {
         double radians = Math.toRadians(x);
 
         return Math.cos(radians);
     }
+
 
     public double tangent(double x) {
         double radians = Math.toRadians(x);
@@ -47,7 +49,7 @@ public class Scientific {
     }
 
     public double inverseCosine(double x) {
-        return Math.acos(sin(x));
+        return Math.acos(sine(x));
     }
 
     public double inverseTangent(double x) {
