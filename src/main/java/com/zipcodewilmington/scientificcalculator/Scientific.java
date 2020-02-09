@@ -1,16 +1,16 @@
 package com.zipcodewilmington.scientificcalculator;
 
 public class Scientific {
-    public int square(double x) {
+    public double square(double x) {
 
-        return (int) Math.pow(x, 2);
+        return Math.pow(x, 2);
     }
 
-    public int squareRoot(double x) {
+    public double squareRoot(double x) {
         return (int) Math.sqrt(x);
     }
 
-    public double inverse(int x) {
+    public double inverse(double x) {
         Basic basic = new Basic();
         return basic.divide(1, x);
     }

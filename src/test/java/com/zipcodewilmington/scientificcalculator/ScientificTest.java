@@ -9,23 +9,23 @@ public class ScientificTest {
     @Test
     public void squareTest() {
         Scientific scientific = new Scientific();
-        int expected = 4;
-        int actual = scientific.square(2);
+        double expected = 4;
+        double actual = scientific.square(2);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void squareRoot() {
         Scientific scientific = new Scientific();
-        int expected = 12;
-        int actual = scientific.squareRoot(144);
+        double expected = 12;
+        double actual = scientific.squareRoot(144);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void inverseTest() {
         Scientific scientific = new Scientific();
-        int expected = 1 / 8;
+        double expected = 1 / 8;
         double actual = scientific.inverse(8);
         Assert.assertEquals(expected, actual, 5);
     }

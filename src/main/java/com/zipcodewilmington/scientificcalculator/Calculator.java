@@ -44,7 +44,8 @@ public class Calculator {
 
         String[] basic = {"+", "-", "/", "*"};
         String[] sci = {"square()", "squareRoot()", "inverse()", "switchSign()", "sine()", "cosine()", "tangent()", "inverseSine()", "inverseCosine()", "inverseTangent()", "factorial()"};
-        String[] quick = {"square()", "squareRoot()", "sine()", "cosine()", "tangent()", "inverseSine()", "inverseCosine()", "inverseTangent()"};
+        //String[]
+        String[] quick = {"square()", "squareRoot()", "sine()", "cosine()", "tangent()", "inverseSine()", "inverseCosine()", "inverseTangent()","clear","",};
         String entered = "";
 
         boolean exitDoLoop = false;
@@ -195,14 +196,40 @@ public class Calculator {
 
                 }else if(userOperator.equals("sine()")) {
 
-                    double newNum = scientific.sin(user.currentVal);
+                    double newNum = scientific.sine(user.currentVal);
                     user.currentVal = newNum;
 
                 }else if(userOperator.equals("cosine()")) {
 
-                    double newNum = scientific.inverse(user.currentVal);
+                    double newNum = scientific.cosine(user.currentVal);
                     user.currentVal = newNum;
 
+                }else if(userOperator.equals("tangent()")) {
+
+                    double newNum = scientific.tangent(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("inverseSine()")) {
+
+                    double newNum = scientific.inverseSine(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("inverseCosine()")) {
+
+                    double newNum = scientific.inverseCosine(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("inverseTangent()")) {
+
+                    double newNum = scientific.inverseTangent(user.currentVal);
+                    user.currentVal = newNum;
+
+                }else if(userOperator.equals("factorial()")) {
+
+                    double newNum = scientific.factorial(user.currentVal);
+                    user.currentVal = newNum;
+                }else {
+                }
 
                 keepGoing = 0;
                 
@@ -217,4 +244,5 @@ public class Calculator {
 
 
 }
+
 
