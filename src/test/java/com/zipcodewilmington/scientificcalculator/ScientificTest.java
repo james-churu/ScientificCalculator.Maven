@@ -102,6 +102,13 @@ public class ScientificTest {
         Assert.assertEquals(expected, actual, 0);
 
     }
+    @Test
+    public void switchUnitModeTest() {
+        Scientific scientific = new Scientific();
+         double expected = 1;
+         double actual = scientific.switchUnitMode(1.0,  2.0);
+        Assert.assertEquals(expected, actual, 0);
 
+    }
 
 }

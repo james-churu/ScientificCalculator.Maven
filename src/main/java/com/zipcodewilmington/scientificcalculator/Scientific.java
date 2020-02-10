@@ -28,7 +28,6 @@ public class Scientific {
     }
 
 
-
     public double cosine(double x) {
         double radians = Math.toRadians(x);
 
@@ -63,5 +62,16 @@ public class Scientific {
             num = num * i;
         }
         return num;
+    }
+
+    public double switchUnitMode(double x, double y) {
+        if (1 == y) {
+            Math.toRadians(x);
+
+        } else if (2 == y) {
+            Math.toDegrees(x);
+        }
+        return x;
+
     }
 }
