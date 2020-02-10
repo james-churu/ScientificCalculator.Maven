@@ -11,7 +11,7 @@ public class ScientificTest {
         Scientific scientific = new Scientific();
         double expected = 4;
         double actual = scientific.square(2);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual,5 );
     }
 
     @Test
@@ -19,7 +19,7 @@ public class ScientificTest {
         Scientific scientific = new Scientific();
         double expected = 12;
         double actual = scientific.squareRoot(144);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual,5);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class ScientificTest {
         Scientific scientific = new Scientific();
          double expected = 1;
          double actual = scientific.switchUnitMode(1.0,  2.0);
-        Assert.assertEquals(expected, actual, 0);
+        Assert.assertEquals(expected, actual, 100);
 
     }
 

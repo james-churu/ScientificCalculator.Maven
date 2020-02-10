@@ -66,10 +66,10 @@ public class Scientific {
 
     public double switchUnitMode(double x, double y) {
         if (1 == y) {
-            Math.toRadians(x);
+            x = Math.toRadians(x);
 
         } else if (2 == y) {
-            Math.toDegrees(x);
+            x = Math.toDegrees(x);
         }
         return x;
 

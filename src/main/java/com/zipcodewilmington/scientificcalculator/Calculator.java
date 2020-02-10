@@ -70,6 +70,8 @@ public class Calculator {
                     System.out.println("Using Random #       : " + entered);
                     x = 5;
                 }else {
+
+
                     entered = Double.parseDouble(inputo);
                     x = 2;
                 }
@@ -94,7 +96,7 @@ public class Calculator {
     //***************************Taking an operator****************************
     public String operatorInput() {
 
-        String[] basic = {"+", "-", "/", "*","switchDPM()","switchDPM(binary)","switchDPM(octal)","switchDPM(decimal)","switchDPM(hex)"};
+        String[] basic = {"+", "-", "/", "*","switchDPM()","switchDPM(binary)","switchDPM(octal)","switchDPM(decimal)","switchDPM(hex)","deg","rad"};
         String[] sci = {"square()", "squareRoot()", "inverse()", "switchSign()", "sine()", "cosine()", "tangent()", "inverseSine()", "inverseCosine()", "inverseTangent()", "factorial()"};
         String[] quick = {"square()", "squareRoot()", "sine()", "cosine()", "tangent()", "inverseSine()", "inverseCosine()", "inverseTangent()","M+","MC","clear","exit"};
         String entered = "";
@@ -296,7 +298,6 @@ public class Calculator {
 
                 }else if(userOperator.equals("clear")) {
                     user.currentVal = 0;
-                    user.savedVal = 0;
                     System.out.println("*** Memory Cleared **** ------");
                     System.out.println("Saved   Val          : " + user.savedVal);
                     System.out.println("Current Val          : " + user.currentVal);
@@ -350,6 +351,14 @@ public class Calculator {
                 }else if(userOperator.equals("switchDPM(hex)")){
                     System.out.println("Hexadecimal Value  = : " + user.toHex(user.currentVal));
                     displayMD = "hexadecimal";
+
+                }else if(userOperator.equals("rad")){
+
+                    System.out.println("Radian Conversion  = : " + scientific.switchUnitMode(user.currentVal,1));
+
+                }else if(userOperator.equals("deg")){
+
+                    System.out.println("Degree Conversion  = : " + scientific.switchUnitMode(user.currentVal,2));
 
                 }
             }
