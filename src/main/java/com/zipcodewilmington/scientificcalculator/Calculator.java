@@ -16,6 +16,30 @@ public class Calculator {
         currentVal = start;
         savedVal = saved;
     }
+    //********** TO BINARY ********
+
+    public String toBinary(double recieve){
+        Integer convert = (int)Math.round(recieve);
+        String bin = Integer.toBinaryString(convert);
+        return bin;
+    }
+    // ******** TO OCTAL *********
+    public String toOctal(double recieve){
+        Integer convert = (int)Math.round(recieve);
+        String bin = Integer.toOctalString(convert);
+        return bin;
+    }
+    // ********* TO DECIMAL ********
+    public Integer toDecimal(double recieve) {
+        Integer convert = (int) Math.round(recieve);
+        return convert;
+    }
+    // ********* TO HEXADECIMAL *******
+    public String toHex(double recieve) {
+        Integer convert = (int) Math.round(recieve);
+        String bin = Integer.toHexString(convert);
+        return bin;
+    }
 
     //***********************Taking a number method;****************************
     public static double numberInput(double savedNumber,double currentValue) {
@@ -29,10 +53,22 @@ public class Calculator {
                 Scanner attempt1 = new Scanner(System.in);
                 inputo  = attempt1.nextLine();
 
-                if (inputo.equals("MRC")){
+                if (inputo.equals("MRC")) {
                     entered = savedNumber;
                     System.out.println("Using Saved #        : " + savedNumber);
                     x = 4;
+                }else if(inputo.equals("random")){
+                    entered = Math.random() * (70 - -70);
+                    System.out.println("Using Random #       : " + entered);
+                    x = 5;
+                }else if(inputo.equals("random+")){
+                    entered = Math.random() * (101 - 1);
+                    System.out.println("Using Random #       : " + entered);
+                    x = 5;
+                }else if(inputo.equals("random-")){
+                    entered = Math.random() * (-100 - -1);
+                    System.out.println("Using Random #       : " + entered);
+                    x = 5;
                 }else {
                     entered = Double.parseDouble(inputo);
                     x = 2;
@@ -58,7 +94,7 @@ public class Calculator {
     //***************************Taking an operator****************************
     public String operatorInput() {
 
-        String[] basic = {"+", "-", "/", "*"};
+        String[] basic = {"+", "-", "/", "*","switchDPM()","switchDPM(binary)","switchDPM(octal)","switchDPM(decimal)","switchDPM(hex)"};
         String[] sci = {"square()", "squareRoot()", "inverse()", "switchSign()", "sine()", "cosine()", "tangent()", "inverseSine()", "inverseCosine()", "inverseTangent()", "factorial()"};
         String[] quick = {"square()", "squareRoot()", "sine()", "cosine()", "tangent()", "inverseSine()", "inverseCosine()", "inverseTangent()","M+","MC","clear","exit"};
         String entered = "";
@@ -115,8 +151,7 @@ public class Calculator {
     public static void main(String[] args) {
 
 
-        System.out.print("Hello which calculator would you like to use ? \n" +
-                "Enter ''S'' for Scientific or ''B''  for Basic   : ");
+        System.out.print("  Chose your Calculator  : \n" + "S = Scientific B = Basic : ");
 
         String whichCalc = calcChoice();
         int loopExit = 0;
@@ -124,15 +159,17 @@ public class Calculator {
         while (loopExit == 0) {
 
             if (whichCalc.equals("S") || whichCalc.equals("s")) {
-                System.out.println("\n" + "Opening Scientific Calc" + "\n");
-                //Call Scientific Calc Class
+
+                System.out.println("\n" + "* Opening Scientific Calc *" + "\n");
                 loopExit = 1;
+
             } else if (whichCalc.equals("B") || whichCalc.equals("b")) {
-                System.out.println("\n" + "Opening Basic Calc");
-                //Call Basic Calc Class
+
+                System.out.println("\n" + "*** Opening Basic Calc *** ");
                 loopExit = 1;
+
             } else {
-                System.out.print("Sorry invalid input : Try again : ");
+                System.out.print("Invalid Input :          : ");
 
                 loopExit = 0;
 
@@ -151,15 +188,16 @@ public class Calculator {
 
         if (loopExit == 1) {
 
-            System.out.print("Hello Please provide your starting Num : ");
-            starterNum = numberInput(user.savedVal,user.currentVal);
-            user.currentVal = starterNum;
-
-            System.out.print("Hello Please provide a number to save  : ");
+            System.out.print("# to Save in Memory  : ");
             savedNum = numberInput(user.savedVal,user.currentVal);
             user.savedVal = savedNum;
 
+            System.out.print("Starting Position    : ");
+            starterNum = numberInput(user.savedVal,user.currentVal);
+            user.currentVal = starterNum;
+
             int keepGoing = 1;
+            String displayMD = "double";
             while (keepGoing > 0) {
                 System.out.println("Current Val          : " + user.currentVal);
                 System.out.print("Enter Operator       : ");
@@ -259,24 +297,73 @@ public class Calculator {
                 }else if(userOperator.equals("clear")) {
                     user.currentVal = 0;
                     user.savedVal = 0;
+                    System.out.println("*** Memory Cleared **** ------");
+                    System.out.println("Saved   Val          : " + user.savedVal);
                     System.out.println("Current Val          : " + user.currentVal);
+
                     double userNextNum = user.numberInput(user.savedVal,user.currentVal);
                     user.currentVal = userNextNum;
+
                 }else if(userOperator.equals("exit")){
+
                     keepGoing = 0;
+
+                }else if(userOperator.equals("switchDPM()")){
+
+                    if(displayMD.equals("double")){
+                        displayMD = "hexadecimal";
+                    }
+
+                    if(displayMD.equals("hexadecimal")) {
+
+                        System.out.println("Binary Conversion  = : " + user.toBinary(user.currentVal));
+                        displayMD = "binary";
+
+                    }else if(displayMD.equals("binary")){
+
+                        System.out.println("Octal  Conversion  = : " + user.toOctal(user.currentVal));
+                        displayMD = "octal";
+
+                    }else if(displayMD.equals("octal")){
+
+                        System.out.println("Decimal Conversion = : " + user.toDecimal(user.currentVal));
+                        displayMD = "decimal";
+
+                    }else if(displayMD.equals("decimal")){
+
+                        System.out.println("Hexadecimal Value  = : " + user.toHex(user.currentVal));
+                        displayMD = "hexadecimal";
+
+                    }
+                }else if(userOperator.equals("switchDPM(binary)")){
+                    System.out.println("Binary Conversion  = : " + user.toBinary(user.currentVal));
+                    displayMD = "binary";
+
+                }else if(userOperator.equals("switchDPM(octal)")){
+                    System.out.println("Octal  Conversion  = : " + user.toOctal(user.currentVal));
+                    displayMD = "octal";
+
+                }else if(userOperator.equals("switchDPM(decimal)")){
+                    System.out.println("Decimal Conversion = : " + user.toDecimal(user.currentVal));
+                    displayMD = "decimal";
+
+                }else if(userOperator.equals("switchDPM(hex)")){
+                    System.out.println("Hexadecimal Value  = : " + user.toHex(user.currentVal));
+                    displayMD = "hexadecimal";
+
                 }
             }
         }
 
-        System.out.println("\n" + "\n" +"  Calculator Application Closed  " + user.currentVal);
-
+        System.out.println("\n" + "           FINAL VALUE           " + "\n");
+        System.out.println(             "               "+user.currentVal);
+        System.out.println("\n" +"   Calculator Application Closed  " + "\n");
     }
-
-
 
 }
 
 
+//Scrapped Code Below
 /*
 do {
             try {

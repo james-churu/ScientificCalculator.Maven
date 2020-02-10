@@ -7,7 +7,7 @@ public class Scientific {
     }
 
     public double squareRoot(double x) {
-        return (int) Math.sqrt(x);
+        return Math.sqrt(x);
     }
 
     public double inverse(double x) {
